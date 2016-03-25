@@ -24,7 +24,7 @@ class StatService {
 				entityType: entity.entityType,
 				identifier: entity.identifier,
 				totalTags: entity.tags.length,
-				numSimilarEntities: numSimilar //exclude self
+				numSimilarEntities: numSimilar
 			};
 		});
 	}

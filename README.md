@@ -25,6 +25,49 @@ Test
 npm test
 ```
 
+API
+---
+
+### POST /tags
+Create a new entity from the post body. Any existing entity with the same type and identifier will be overwritten
+
+#### Schema
+Expected schema is defined in [newEntityValidator.js](src/validators/newEntityValidator.js) Schema validation errors will be returned in the error response body
+
+### GET /tags/:entity_type/:entity_id
+Returns a JSON representation of the entity and the tags it has assigned. Returns a 404 if no such entity exists.
+Example:
+```
+{
+    "entityType": "book", 
+    "identifier": "abc-123", 
+    "tags":["a","b"]
+}
+```
+
+### DELETE /tags/:entity_type/:entity_id
+Completely removes the entity and tags. Returns a 404 if no such entity exists.
+
+### GET /stats
+
+Retrieves statistics about all tags
+Example:
+```
+[{tag: 'Bike', count: 5}, {tag: 'Pink', count: 3}]
+```
+
+### GET /stats/:entity_type/:entity_id
+Retrieves statistics about a specific tagged entity. Returns a 404 if no such entity exists.
+Example:
+```
+{
+    "entityType": "book", 
+    "identifier": "abc-123", 
+    "totalTags":2,
+    "numSimilarEntities": 5
+}
+```
+
 Notes
 -----
 
