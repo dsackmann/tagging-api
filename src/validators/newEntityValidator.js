@@ -11,7 +11,8 @@ let schema = {
 		entityType: {
 			type: 'string',
 			required: true,
-			maxLength: 256
+			maxLength: 256,
+			format: 'alpha'
 		},
 		tags: {
 			type: 'array',
