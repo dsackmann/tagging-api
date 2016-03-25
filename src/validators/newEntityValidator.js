@@ -15,6 +15,7 @@ let schema = {
 		},
 		tags: {
 			type: 'array',
+			required: true,
 			uniqueItems: true,
 			items: {
 				type: 'string',
